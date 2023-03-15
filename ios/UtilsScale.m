@@ -51,40 +51,66 @@ RCT_EXPORT_MODULE()
 
     NSInteger screenHeight = MAX(width, height);
 
-    switch (screenHeight) {
-        case 240:
-            return 3.5;
-        case 480:
-            return 3.5;
-        case 568:
-            return 4;
-        case 667:
-            return scale == 3.0 ? 5.5 : 4.7;
-        case 736:
-            return 5.5;
-        case 812:
-            return 5.4;
-        case 844:
-            return 6.1;
-        case 896:
-            return 6.5;
-        case 926:
-            return 6.7;
-        case 1024:
-            return 9.7;
-        case 1080:
-            return 10.2;
-        case 1112:
-            return 10.5;
-        case 1180:
-            return 10.9;
-        case 1194:
-            return 11;
-        case 1366:
-            return 12.9;
-        default:
-            return 0;
-    }
+         if(screenHeight >= 1366) {
+          return 12.9;
+        }
+
+        if(screenHeight >= 1194) {
+          return 11;
+        }
+
+        if(screenHeight >= 1180) {
+          return 10.9;
+        }
+
+        if(screenHeight >= 1112) {
+          return 10.5;
+        }
+
+        if(screenHeight >= 1080) {
+          return 10.2;
+        }
+
+        if(screenHeight >= 926) {
+          return 6.7;
+        }
+
+        if(screenHeight >= 896) {
+          return 6.5;
+        }
+
+        if(screenHeight >= 844) {
+          return 6.1;
+        }
+
+        if(screenHeight >= 812) {
+           return 5.4;
+        }
+
+        if(screenHeight >= 736) {
+           return 5.5;
+        }
+
+        if(screenHeight >= 667) {
+           return scale == 3.0 ? 5.5 : 4.7;
+        }
+
+        if(screenHeight >= 568) {
+           return 4;
+        }
+
+        if(screenHeight >= 480) {
+           return 3.5;
+        }
+
+        if(screenHeight >= 240) {
+           return 3.5;
+        }
+
+        return 6.5;
+         switch (screenHeight) {
+             case 240:
+                 return 3.5;
 }
 
 - (BOOL) hasNotch
